@@ -6,9 +6,8 @@ Just a simple flutter package to get the duration of any audio file ( like: mp3 
 ```
 import 'package:audio_duration/audio_duration.dart';
 //
-final _audioDurationPlugin = AudioDuration();
 var filePathString = "./path/to/the/file.mp3"
-var durationInMilliSeconds = await _audioDurationPlugin.getAudioDuration(filePathString);
+var durationInMilliSeconds = await AudioDuration.getAudioDuration(filePathString);
 ```
 
 ## Motivation

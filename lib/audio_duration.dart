@@ -5,7 +5,7 @@ class AudioDuration {
     return AudioDurationPlatform.instance.getPlatformVersion();
   }
 
-  Future<int?> getAudioDuration(String path) {
+  static Future<int?> getAudioDuration(String path) {
     return AudioDurationPlatform.instance.getAudioDuration(path);
   }
 }

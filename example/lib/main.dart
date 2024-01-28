@@ -17,7 +17,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _audioDurations = '...';
-  final _audioDurationPlugin = AudioDuration();
 
   @override
   void initState() {
@@ -58,8 +57,8 @@ class _MyAppState extends State<MyApp> {
 
                         var finalText = "";
                         for (var i = 0; i < urls.length; i++) {
-                          var duration = await _audioDurationPlugin
-                              .getAudioDuration(urls[i]);
+                          var duration =
+                              await AudioDuration.getAudioDuration(urls[i]);
                           finalText += "${urls[i]} - ${duration!}\n";
                         }
 
