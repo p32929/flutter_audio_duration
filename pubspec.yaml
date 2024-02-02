@@ -1,6 +1,6 @@
 name: audio_duration
 description: "Just a simple flutter package to get the duration of any audio file ( like: mp3 ) in milliseconds"
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/p32929/flutter_audio_duration
 
 environment:
@@ -38,14 +38,14 @@ flutter:
       android:
         package: p32929.audio_duration.audio_duration
         pluginClass: AudioDurationPlugin
-      ios:
-        pluginClass: AudioDurationPlugin
-      linux:
-        pluginClass: AudioDurationPlugin
-      macos:
-        pluginClass: AudioDurationPlugin
-      windows:
-        pluginClass: AudioDurationPluginCApi
+      # ios:
+      #   pluginClass: AudioDurationPlugin
+      # linux:
+      #   pluginClass: AudioDurationPlugin
+      # macos:
+      #   pluginClass: AudioDurationPlugin
+      # windows:
+      #   pluginClass: AudioDurationPluginCApi
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
