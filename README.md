@@ -1,34 +1,44 @@
 # audio_duration
 
-A simple Flutter package that returns the duration of an audio file (mp3, and anything else Android's `MediaMetadataRetriever` can read) in milliseconds. One call, no playback, no listeners.
+A tiny Flutter plugin that tells you how long an audio file is, in milliseconds. You don't need to load a player, start playback or wait for a listener: one call returns the length of an mp3 (or any other file Android can read).
 
 On pub.dev: **[audio_duration](https://pub.dev/packages/audio_duration)**
 
 [![pub version](https://badgen.net/pub/v/audio_duration)](https://pub.dev/packages/audio_duration)
 
-> **Android only** for now — see Motivation below.
+> **Android only.** On other platforms the call is not implemented.
 
-## Installation
+## Features
+
+1. **One line of code** to get a file's duration.
+2. **No playback needed,** so it is fast and silent. It reads the duration from the file's own information, using Android's `MediaMetadataRetriever`.
+3. **Works with mp3 and the other formats Android supports.**
+
+## Install
+
+Add it to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
   audio_duration: ^0.0.3
 ```
 
+Then run `flutter pub get`.
+
 ## How to use
 
 ```dart
 import 'package:audio_duration/audio_duration.dart';
-//
-var filePathString = "./path/to/the/file.mp3"
-var durationInMilliSeconds = await AudioDuration.getAudioDuration(filePathString);
+
+final int? durationInMilliseconds =
+    await AudioDuration.getAudioDuration('/path/to/the/file.mp3');
 ```
 
-## Motivation
-I needed a package for a personal android app that can get the audio duration. But I couldn't find any package that can do it ( may be I haven't searched enough, who knows? )
-So, I created this package...
+Pass the full path to a file on the device. If the file has no duration information, you get `0`.
 
-For now, it only supports Android. I also dont have a Mac or an iOS device, so those are out of question for now :/ 
+## Why I made it
+
+I needed the length of audio files in a personal Android app and couldn't find a simple package that only did that, so I wrote one. It supports Android only, because I didn't have a Mac or an iOS device to build the iOS part.
 
 ## License
 
@@ -36,43 +46,12 @@ MIT License — Copyright (c) 2020 Fayaz Bin Salam. See [LICENSE](LICENSE) for t
 
 ## Contributing
 
-Contributions are warmly welcomed and greatly appreciated! Whether it's a bug fix, new feature, or improvement, your input helps make this project better for everyone.
-
-Before submitting a pull request, please:
-
-1. Create an issue describing the feature or bug fix you'd like to work on
-2. Wait for discussion and approval to ensure alignment with project goals
-3. Fork the repository and create your feature branch
-4. Submit your pull request with a clear description of changes
-
-This approach helps avoid duplicate efforts and ensures smooth collaboration. Thank you for considering contributing!
+Contributions are very welcome, thank you! Before you start on a pull request, please open an issue and tell me what you would like to add or change. That way we can agree on it first, and your time is not wasted on something that might not fit. Thanks for helping make audio_duration better.
 
 ## Share
 
-Sharing this repository with your friends is just one click away from here
+<a href="https://p32929.github.io/share/?repo=flutter_audio_duration"><img src="https://p32929.github.io/readme/share.svg" alt="Share this with your friends in just a click" width="420"></a>
 
-[![facebook](https://user-images.githubusercontent.com/6418354/179013321-ac1d1452-0689-493f-9066-940cf2302b6e.png)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/p32929/flutter_audio_duration/)
-[![twitter](https://user-images.githubusercontent.com/6418354/179013351-7d8d6d1c-4ce2-46ab-bef8-4c4765a1b888.png)](https://twitter.com/intent/tweet?url=https://github.com/p32929/flutter_audio_duration/)
-[![tumblr](https://user-images.githubusercontent.com/6418354/179013343-3111f55a-3b90-40c7-8487-9777348672b0.png)](https://www.tumblr.com/share?v=3&u=https://github.com/p32929/flutter_audio_duration/)
-[![pocket](https://user-images.githubusercontent.com/6418354/179013334-b095c45f-becf-49f4-9ee1-5a731a9b1f85.png)](https://getpocket.com/save?url=https://github.com/p32929/flutter_audio_duration/)
-[![pinterest](https://user-images.githubusercontent.com/6418354/179013331-44cd9206-11b1-4b65-becb-5863b61c828f.png)](https://pinterest.com/pin/create/button/?url=https://github.com/p32929/flutter_audio_duration/)
-[![reddit](https://user-images.githubusercontent.com/6418354/179013338-7416ae3f-73ba-4522-86e1-1374d7082d22.png)](https://www.reddit.com/submit?url=https://github.com/p32929/flutter_audio_duration/)
-[![linkedin](https://user-images.githubusercontent.com/6418354/179013327-ca7b7102-1da8-4b1c-858f-1a6e5f21bd70.png)](https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/p32929/flutter_audio_duration/)
-[![whatsapp](https://user-images.githubusercontent.com/6418354/179013353-f477fa0b-3e6f-4138-a357-c9991b23ff88.png)](https://api.whatsapp.com/send?text=https://github.com/p32929/flutter_audio_duration/)
+## Support
 
-<!-- hire-block -->
-
----
-
-## 💼 Using this at a company?
-
-I do fixed-price delivery work on my own projects. One invoice, one date, no hourly billing:
-
-| | |
-|---|---|
-| **White-label build** — this project rebranded, extended and deployed as yours | **$6,500** · 3 weeks |
-| **Custom app from scratch** on my own stack, signed and auto-updating | **$12,500** · 6 weeks |
-| **Production-hardening sprint** — 72 hours on this project, for your load and your security review | **$999** |
-| **Ongoing capacity** — one project-week of my time reserved every month | **$9,000 / month** |
-
-Full details → **[p32929.github.io/hire](https://p32929.github.io/hire/)** · Email **[fayazdevinbox@uberip.com](mailto:fayazdevinbox@uberip.com)** — scoping and quotes are free and I answer within one business day.
+<a href="https://p32929.github.io/support/"><img src="https://p32929.github.io/readme/support.svg" alt="If you like my works and want to support me, feel free to support" width="420"></a>
